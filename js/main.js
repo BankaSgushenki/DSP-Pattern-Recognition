@@ -42,11 +42,12 @@ patternRecognizer.loadImage = function(src) {
     var img = new Image();
     img.src = src;
     img.onload = function() {
+        
         self.width = self.ctx.canvas.width = img.width;
         self.height = self.ctx.canvas.height = img.height;
         self.ctx.drawImage(img, 0, 0);
         self.binaryzedPixels = patternRecognizer.extendedPixels(self.threshold(128));
-        self.searchForObjects();
+         self.searchForObjects();
     };
 };
 
@@ -69,9 +70,9 @@ patternRecognizer.threshold = function(threshold) {
 
 patternRecognizer.searchForObjects = function() {
     var pixels = this.binaryzedPixels;
-    for (i = 0; i < pixels.height; j++)
-        for(j = 0; j < pixels.width; j ++) {
-            if(pixels.getColor(j, i) === 0) {
+    for (i = 0; i < pixels.height; i++)
+        for(j = 0; j < pixels.width; j++) {
+            if(pixels.getColor(j, i) === 255) {
                 pixels.setColor(j,i, new patternRecognizer.RGB(255,0,0));
             }
         }
