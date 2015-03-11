@@ -56,7 +56,7 @@ patternRecognizer.loadImage = function(src) {
         self.width = self.ctx.canvas.width = self.originalImage.width;
         self.height = self.ctx.canvas.height = self.originalImage.height;
         self.ctx.drawImage(self.originalImage, 0, 0);
-        self.binaryzedPixels = patternRecognizer.extendedPixels(self.threshold(128));
+                    self.binaryzedPixels = patternRecognizer.extendedPixels(self.threshold(128));
         self.searchForObjects();
         self.paintAreas();
     };
@@ -143,5 +143,7 @@ patternRecognizer.paintAreas = function() {
                 if (sugar.indexOf(area) >= 0) this.resultImage.setColor(x, y, sugarColor);
             }
         }
-    this.ctx.putImageData(this.resultImage, 0, 0);
+   // this.ctx.putImageData(this.resultImage, 0, 0);
+   //this.ctx.putImageData(this.binaryzedPixels, 0, 0);
+   //this.ctx.putImageData(this.originalImage, 0, 0);
 }
