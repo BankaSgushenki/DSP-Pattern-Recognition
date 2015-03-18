@@ -6,13 +6,56 @@
         <meta name="description" content="Pattern Recognition">
         <link rel="stylesheet"  href="css/main.css">
         <link rel="stylesheet"  href="css/bootstrap.css">
+        
     </head>
     <body>
-        <div class = "content text-center">
-            <canvas id="canvas"></canvas>
-        </div>
-        <script type="text/javascript" src = "js/patternRecognizer.js"></script>
-        <script type="text/javascript" src = "js/main.js"></script>
+        <table class>
+            <td>
+                <div class = "content text-center">
+                    <canvas id="canvas" class="frame"></canvas>
+                </div>
+        
+                <script type="text/javascript" src = "js/patternRecognizer.js"></script>
+                <script type="text/javascript" src = "js/main.js"></script>
+
+    
+        
+                <div class = "center">        
+                    <input type="button" class="button" name="buttonOriginal" value="Original" onClick="showOriginalImage();">
+                    <input type="button" class="button" name="buttonBinary" value="Binary" onClick="showBinaryzedPixels();">
+                    <input type="button" class="button" name="buttonResult" value="Result" onClick="showResultImage();"> 
+                </div>
+            </td>
+            <td>
+                <div class = "center">
+                    <table id="galery">
+                        <tr>
+                            <td><input type='image' src="images/P0001460.jpg" class="smallImg" onclick="key('60');"></td>
+                            <td><input type='image' src="images/P0001461.jpg" class="smallImg" onclick="key('61');"></td>
+                        </tr>
+                        <tr>
+                            <td><input type='image' src="images/P0001464.jpg" class="smallImg" onclick="key('64');"></td>
+                            <td><input type='image' src="images/P0001465.jpg" class="smallImg" onclick="key('65');"></td>
+                        </tr>
+                        <tr>
+                            <td><input type='image' src="images/P0001467.jpg" class="smallImg" onclick="key('67');"></td>
+                            <td><input type='image' src="images/P0001468.jpg" class="smallImg" onclick="key('68');"></td>
+                        </tr>
+                        <tr>
+                            <td><input type='image' src="images/P0001469.jpg" class="smallImg" onclick="key('69');"></td>
+                            <td><input type='image' src="images/P0001470.jpg" class="smallImg" onclick="key('70');"></td>
+                        </tr>
+                        <tr>
+                            <td><input type='image' src="images/P0001471.jpg" class="smallImg" onclick="key('71');"></td>
+                            <td><input type='image' src="images/P0001472.jpg" class="smallImg" onclick="key('72');"></td>
+                        </tr>
+                    </table>
+                
+                </div>
+            </td>
+        </table>
+        
+            
     </body>
 </html>
 
