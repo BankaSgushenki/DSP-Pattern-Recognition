@@ -24,12 +24,18 @@ patternRecognizer.extendedPixels = function(pixels) {
 patternRecognizer.areaMap = {
     field: [],
 
+    spaces: [],
+
     init: function() {
         for (var i = 0; i < patternRecognizer.width; i++) {
             this.field[i] = [];
             for(var j = 0; j < patternRecognizer.height; j++) {
                 this.field[i][j] = 0;
             }
+        }
+
+        for(var j = 0; j < 10000; j++) {
+            this.spaces[j] = 0;
         }
     },
 
@@ -56,7 +62,7 @@ patternRecognizer.loadImage = function(src) {
         self.width = self.ctx.canvas.width = self.originalImage.width;
         self.height = self.ctx.canvas.height = self.originalImage.height;
         self.ctx.drawImage(self.originalImage, 0, 0);
-        self.binaryzedPixels = patternRecognizer.extendedPixels(self.threshold(128));
+        self.binaryzedPixels = patternRecognizer.extendedPixels(self.threshold(180));
         self.searchForObjects();
         self.paintAreas();
     };
@@ -89,6 +95,7 @@ patternRecognizer.searchForObjects = function() {
                     area = this.areaMap.getArea(x,y-1);
                     if (area != 0) {
                         this.areaMap.setArea(x,y,area);
+                        this.areaMap.spaces[area] ++;
                         for(i = 0; i < 50; i++) {
                             if (this.areaMap.getArea(x - i,y) === 0) break;
                             this.areaMap.setArea(x-i,y,area);
@@ -99,17 +106,21 @@ patternRecognizer.searchForObjects = function() {
                 if(!pixels.leftPixelIsBlack(x,y)) {
                     area = this.areaMap.getArea(x-1,y);
                     this.areaMap.setArea(x,y,area);
+                    this.areaMap.spaces[area] ++;
                     continue;
                 }
                 if(!pixels.upperPixelIsBlack(x,y)) {
                     area = this.areaMap.getArea(x,y-1);
                     this.areaMap.setArea(x,y,area);
+                    this.areaMap.spaces[area] ++;
                     continue;
                 }
                 this.areaMap.setArea(x,y,this.areasNumber);
+                this.areaMap.spaces[this.areasNumber] ++;
                 this.areasNumber++;
         }
     }
+    console.log(this.areaMap.spaces);
 }
 
 patternRecognizer.getAreaParametres = function(areaNumber) {
@@ -128,8 +139,9 @@ patternRecognizer.paintAreas = function() {
         sugarColor = new this.RGB(133, 243, 105);
 
     for(var i = 1; i < this.areasNumber; i++) { 
-        var space = this.getAreaParametres(i);
-        if (space > 10) {
+        // var space = this.getAreaParametres(i);
+        var space = this.areaMap.spaces[i];
+        if (space > 100) {
             if (space > 2000) spoons.push(i);
             else sugar.push(i);
         }
@@ -143,5 +155,5 @@ patternRecognizer.paintAreas = function() {
                 if (sugar.indexOf(area) >= 0) this.resultImage.setColor(x, y, sugarColor);
             }
         }
-    this.ctx.putImageData(this.resultImage, 0, 0);
+   this.ctx.putImageData(this.resultImage, 0, 0);
 }
