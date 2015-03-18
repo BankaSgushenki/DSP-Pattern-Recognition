@@ -155,5 +155,4 @@ patternRecognizer.paintAreas = function() {
                 if (sugar.indexOf(area) >= 0) this.resultImage.setColor(x, y, sugarColor);
             }
         }
-   this.ctx.putImageData(this.resultImage, 0, 0);
 }
