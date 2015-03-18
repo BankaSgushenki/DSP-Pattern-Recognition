@@ -19,6 +19,7 @@ body {
 	text-decoration: none;
 	font: 14px/100% Arial, Helvetica, sans-serif;
 	padding: .5em 2em .55em;
+	margin-right: 10px;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: .5em; 
 	-moz-border-radius: .5em;
@@ -33,4 +34,37 @@ body {
 .button:active {
 	position: relative;
 	top: 1px;
+}
+
+.center {
+	style="width: 50%; 
+	margin: 0 auto; 
+	text-align: center;"
+}
+
+.frame {
+	display: inline-block;
+	outline: none;
+	text-decoration: none;
+	padding: 20px;
+	text-shadow: 1 2px 2px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 5px 6px rgba(0,0,0,.2);
+}
+
+
+
+
+galery {margin:100px auto auto 300px;} 
+#galery {border-collapse:collapse; position:relative; top:0; left:0;}
+#galery td {border:1px solid gray; padding:5px;}
+#galery img {vertical-align:top; cursor:pointer; border:0;}
+#galery img, #galery td {width:90px; height:86px;}
+
+.smallImg {
+	width:90px; height:86px;
 }
