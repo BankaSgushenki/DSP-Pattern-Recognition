@@ -10,23 +10,7 @@
     </head>
     <body>
         <table class>
-            <td>
-                <div class = "content text-center">
-                    <canvas id="canvas" class="frame"></canvas>
-                </div>
-        
-                <script type="text/javascript" src = "js/patternRecognizer.js"></script>
-                <script type="text/javascript" src = "js/main.js"></script>
-
-    
-        
-                <div class = "center">        
-                    <input type="button" class="button" name="buttonOriginal" value="Original" onClick="showOriginalImage();">
-                    <input type="button" class="button" name="buttonBinary" value="Binary" onClick="showBinaryzedPixels();">
-                    <input type="button" class="button" name="buttonResult" value="Result" onClick="showResultImage();"> 
-                </div>
-            </td>
-            <td>
+            <td>             
                 <div class = "center">
                     <table id="galery">
                         <tr>
@@ -52,6 +36,25 @@
                     </table>
                 
                 </div>
+            </td>
+            <td>
+                <table class = "center">
+                    <tr>
+                        <div class = "content text-center">
+                            <canvas id="canvas" class="frame"></canvas>
+                        </div>
+                        <script type="text/javascript" src = "js/patternRecognizer.js"></script>
+                        <script type="text/javascript" src = "js/main.js"></script>
+                    </tr>
+                </table>
+                
+                <tr>
+                    <div class = "center" >        
+                        <input type="button" class="button" name="buttonOriginal" value="Original" onClick="showOriginalImage();">
+                        <input type="button" class="button" name="buttonBinary" value="Binary" onClick="showBinaryzedPixels();">
+                        <input type="button" class="button" name="buttonResult" value="Result" onClick="showResultImage();"> 
+                    </div>
+                </tr>             
             </td>
         </table>
         

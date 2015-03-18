@@ -40,13 +40,17 @@ body {
 	style="width: 50%; 
 	margin: 0 auto; 
 	text-align: center;"
+	margin-left:100px;
 }
 
 .frame {
+	max-width: 450px;
+	max-height: 405px;
 	display: inline-block;
 	outline: none;
 	text-decoration: none;
 	padding: 20px;
+	margin-left:100px;
 	text-shadow: 1 2px 2px rgba(0,0,0,.3);
 	-webkit-border-radius: .5em; 
 	-moz-border-radius: .5em;
