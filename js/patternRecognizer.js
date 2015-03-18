@@ -62,7 +62,7 @@ patternRecognizer.loadImage = function(src) {
         self.width = self.ctx.canvas.width = self.originalImage.width;
         self.height = self.ctx.canvas.height = self.originalImage.height;
         self.ctx.drawImage(self.originalImage, 0, 0);
-        self.binaryzedPixels = patternRecognizer.extendedPixels(self.threshold(180));
+        self.binaryzedPixels = patternRecognizer.extendedPixels(self.threshold(190));
         self.searchForObjects();
         self.paintAreas();
     };
