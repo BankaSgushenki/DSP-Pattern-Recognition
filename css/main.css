@@ -38,8 +38,9 @@ body {
 
 .center {
 	style="width: 50%; 
-	margin: 0 auto; 
-	text-align: center;"
+	margin: 0 auto 0 auto; 
+	text-align: center;
+	height: 50%;"
 	margin-left:100px;
 }
 
@@ -71,4 +72,37 @@ galery {margin:100px auto auto 300px;}
 
 .smallImg {
 	width:90px; height:86px;
+}
+
+#container {
+	background: #FFFFFF;
+	margin: 30px auto;
+	width: 903px;
+	height: 500px;
+}
+
+#buttonChose {
+	background: #c0c0c0;
+	float: right;
+	width: 700px;
+	height: 111px;
+}
+
+#imageView {
+	background: #d2d0d2;
+	float: right;
+	width: 700px;
+	height: 400px;
+}
+
+#menu {
+	background: #a2a0a2;
+	float: left;
+
+	width: 203px;
+	height: 511px;
+}
+
+#clear {
+clear:both;
 }

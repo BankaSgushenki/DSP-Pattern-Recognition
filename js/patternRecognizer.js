@@ -62,7 +62,7 @@ patternRecognizer.loadImage = function(src) {
         self.width = self.ctx.canvas.width = self.originalImage.width;
         self.height = self.ctx.canvas.height = self.originalImage.height;
         self.ctx.drawImage(self.originalImage, 0, 0);
-        self.binaryzedPixels = patternRecognizer.extendedPixels(self.threshold(180));
+        self.binaryzedPixels = patternRecognizer.extendedPixels(self.threshold(190));
         self.searchForObjects();
         self.paintAreas();
     };
@@ -88,6 +88,7 @@ patternRecognizer.searchForObjects = function() {
     var pixels = this.binaryzedPixels;
     this.areas = [];
     this.areaMap.init();
+    this.areasNumber = 0;
     for (y = 1; y < pixels.height; y++)
         for(x = 1; x < pixels.width; x++) {
             if(pixels.getColor(x, y) !== 0) {
@@ -124,10 +125,12 @@ patternRecognizer.searchForObjects = function() {
 }
 
 patternRecognizer.getAreaParametres = function(areaNumber) {
-    var space = 0;
+    var topCoordinates = {};
     for (y = 0; y < this.height; y++)
         for(x = 0; x < this.width; x++) {
-            if (this.areaMap.getArea(x,y) == areaNumber) space ++;
+            if(this.areaMap.getArea(x,y) !== 0) {
+
+            }
         }
     return space;
 }
@@ -139,11 +142,10 @@ patternRecognizer.paintAreas = function() {
         sugarColor = new this.RGB(133, 243, 105);
 
     for(var i = 1; i < this.areasNumber; i++) { 
-        // var space = this.getAreaParametres(i);
         var space = this.areaMap.spaces[i];
         if (space > 100) {
-            if (space > 2000) spoons.push(i);
-            else sugar.push(i);
+            if (space > 2500 && space < 4500) spoons.push(i);
+            if (space > 400 && space < 1800) sugar.push(i);
         }
     }
 
@@ -153,7 +155,7 @@ patternRecognizer.paintAreas = function() {
             if (area !== 0) {
                 if (spoons.indexOf(area) >= 0) this.resultImage.setColor(x, y, spoonColor);
                 if (sugar.indexOf(area) >= 0) this.resultImage.setColor(x, y, sugarColor);
+                // this.resultImage.setColor(x, y, new this.RGB(255-area, area, area))
             }
         }
-   this.ctx.putImageData(this.resultImage, 0, 0);
 }
